@@ -125,11 +125,20 @@ prev.addEventListener('click', function(){
 
 
 /***** AUTOPLAY *****/
+// dichiaro il flag per l'autoplay
+let isAutoplay = true;
+
+// lancio autoplay ogni 3 sec
 setInterval(autoplay, 3000);
 
-// copia incolla della funzione anonima dell' addEventLister di next
+/**
+ * funzione per autoplay, la parte dentro if è copia incollata dal bottone next
+ */
 function autoplay() {
-  // tolgo la classe active dalla foto attuale
+  
+  // se autoplay è vero (come di defaul)
+  if(isAutoplay) {
+    // tolgo la classe active dalla foto attuale
   itemsImages[contCarousel].classList.remove('active');
   // tolgo la classe active dalla thumbnails attuale
   itemsThumbnails[contCarousel].classList.remove('active');
@@ -141,6 +150,16 @@ function autoplay() {
   itemsImages[contCarousel].classList.add('active');
   // metto la classe active sulla nuova thumbnails
   itemsThumbnails[contCarousel].classList.add('active');
+  }
 
-  
+  // se vado con il mouse sul carosello iaAutoplay diventa false e si ferma
+  divCarousel.addEventListener('mouseover',function(){
+    isAutoplay = false;
+  });
+
+  // se esco con il mouse dal carosello isAutoplay diventa true e ricomincia da dove si trova in quel momento
+  divCarousel.addEventListener('mouseout',function(){
+    isAutoplay = true;
+  });
+
 }
