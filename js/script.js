@@ -47,7 +47,7 @@ mainWrapper.append(divCarousel);
 divCarousel.append(divImages, divThumbnails);
 
 
-// creo HTML interno a div.images (uso una tecnica diversa rispetto agli altri milestone per allenamento)
+// creo HTML interno a div.images 
 for(let i = 0; i < imagesCarousel.length; i++){
   // creo img
   const image = document.createElement('img');
@@ -66,6 +66,7 @@ for(let i = 0; i < imagesCarousel.length; i++){
   const imgThumbnailsItems = document.createElement('img');
   // aggiungo classe thumbnails-item
   thumbnailsItems.classList.add('thumbnails-item');
+  // aggiungo src immagine
   imgThumbnailsItems.src = 'img/' + imagesCarousel[i];
   // aggiungo alt img
   imgThumbnailsItems.alt = imagesCarousel[i];
@@ -88,8 +89,6 @@ const itemsThumbnails = document.getElementsByClassName('thumbnails-item');
 itemsImages[contCarousel].classList.add('active');
 // metto active alla prima thumbnails
 itemsThumbnails[contCarousel].classList.add('active');
-
-
 
 // al click su next
 next.addEventListener('click', function(){
@@ -123,3 +122,25 @@ prev.addEventListener('click', function(){
    itemsThumbnails[contCarousel].classList.add('active');
  
 });
+
+
+/***** AUTOPLAY *****/
+setInterval(autoplay, 3000);
+
+// copia incolla della funzione anonima dell' addEventLister di next
+function autoplay() {
+  // tolgo la classe active dalla foto attuale
+  itemsImages[contCarousel].classList.remove('active');
+  // tolgo la classe active dalla thumbnails attuale
+  itemsThumbnails[contCarousel].classList.remove('active');
+  // se il contatore è arrivato alla fine lo rimetto all'inizio -1 per creare il loop
+  if(contCarousel == (imagesCarousel.length - 1)) contCarousel = -1;
+  // incremento il contatore
+  contCarousel++;
+  // metto la classe active sulla nuova immagine
+  itemsImages[contCarousel].classList.add('active');
+  // metto la classe active sulla nuova thumbnails
+  itemsThumbnails[contCarousel].classList.add('active');
+
+  
+}
