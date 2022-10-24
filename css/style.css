@@ -1,0 +1,114 @@
+/* GENERAL */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box
+}
+
+body{
+  background-color: black;
+}
+
+/* UTILITIES */
+
+/* display */
+
+.d-none {
+  display: none;
+}
+
+/* flex */
+
+.d-flex {
+  display: flex;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+/* layout */
+
+.main-wrapper {
+  height: 100vh;
+}
+
+/* CAROUSEL */
+
+.carousel {
+  width: 70%;
+  height: 70%;
+  display: flex;
+}
+
+.images {
+  width: 80%;
+  height: 100%;
+}
+
+.item {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;
+}
+
+.item.active {
+  display: block;
+}
+
+.thumbnails {
+  width: 20%;
+  position: relative;
+}
+
+.thumbnails-item {
+  height: calc(100% / 5);
+}
+
+.thumbnails-item img {
+  filter: brightness(0.4);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.thumbnails-item.active {
+  border: 2px solid white 
+}
+
+.thumbnails-item.active img {
+  filter: brightness(1);
+}
+
+.circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: white;
+  opacity: 0.5;
+  color: grey;
+  text-align:center;
+  line-height: 30px;
+  font-size: 1.3rem;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.circle.top {
+  top: 20px;
+}
+
+.circle.bottom {
+  bottom: 20px;
+}
+
+.circle:hover {
+  opacity: 1;
+}
